@@ -4,6 +4,7 @@ public class InvetedIndex {
     private static ArrayList<String> text = new ArrayList<>();
     private static LinkedList<Token> tokenx = new LinkedList<>();
     private static LinkedList<Token> doc = new LinkedList<>();
+    private static String[] doc1;
     private static String find;
     public static String delim = "\\ |\\(|\\)||\\:|\\,|\\-|\\[|\\]|\\+|\\-|\\;|\\=|\\.|\\\"|\\\"|\\“|\\“|\\“|\\”";
 
@@ -16,7 +17,7 @@ public class InvetedIndex {
 
 
             Collections.sort(tokenx, Token.sortAllInfo);
-            //removeSameWordinTokenx();
+            removeSameWordinTokenx();
             printDetail(find);
         } else {
             System.out.println("Not Found Folder");
@@ -36,8 +37,10 @@ public class InvetedIndex {
         for(int i=0;i<tokenx.size();i++){
 
             if(tokenx.get(i).getTerm().equals(find)){
+                doc1 = tokenx.get(i).getDocID().split(" ");
                 //System.out.println(tokenx.get(i).getTerm()+ " "+tokenx.get(i).getDocID());
-                System.out.println("C:\\\\Doc\\\\Doc (" + tokenx.get(i).getDocID() + ").txt |");
+                for (String a : doc1)
+                System.out.println("C:\\\\Doc\\\\Doc (" + a + ").txt |");
                 flag = true;
 
             }
